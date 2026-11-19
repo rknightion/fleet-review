@@ -8,6 +8,15 @@ default:
 setup:
     uv sync
 
+# Prepare locked dependencies and the duplication tool for Cursor Cloud.
+[group('dev')]
+[script('bash')]
+cloud-bootstrap:
+    set -euo pipefail
+    uv sync --locked --no-python-downloads --compile-bytecode
+    version="$(uv run --locked python -c 'from fleet_review.duplication import DEFAULT_JSCPD_VERSION; print(DEFAULT_JSCPD_VERSION)')"
+    npx --yes --prefer-offline "jscpd@$version" --version
+
 # Format the code with ruff.
 [group('dev')]
 fmt:

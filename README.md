@@ -122,6 +122,15 @@ just check   # fmt-check, lint, test
 The tests build throwaway git repos and use real lizard. The duplication tests need `npx` and are
 skipped when it is not available.
 
+## Cursor Cloud specific instructions
+
+The pinned [environment](.cursor/environment.json) runs `just cloud-bootstrap` with the image's
+Python and Node. The recipe syncs `uv.lock`, compiles bytecode and warms the `npx` cache for the
+repository's pinned jscpd version so the duplication tests can run.
+
+Run `just fmt-check lint </dev/null` for a fast check and `just check </dev/null` for the
+full source gate. Reviews need the selected base ref available in the local checkout.
+
 ## Licence
 
 MIT, see `LICENSE`.
