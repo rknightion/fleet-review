@@ -7,7 +7,7 @@ license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Rob Knight" }]
 requires-python = ">=3.11"
-dependencies = ["lizard==1.25.0"]
+dependencies = ["lizard==1.26.1"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Environment :: Console",
