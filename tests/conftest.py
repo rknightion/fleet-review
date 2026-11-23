@@ -95,7 +95,7 @@ def _jscpd_works() -> bool:
             timeout=180,
             check=False,
         )
-    except (OSError, subprocess.TimeoutExpired):
+    except OSError, subprocess.TimeoutExpired:
         return False
     return proc.returncode == 0 and DEFAULT_JSCPD_VERSION in proc.stdout
 

@@ -41,7 +41,7 @@ def resolve_jscpd(version: str) -> tuple[list[str] | None, str]:
             out = subprocess.run(
                 [exe, "--version"], capture_output=True, text=True, timeout=60, check=False
             ).stdout
-        except (OSError, subprocess.TimeoutExpired):
+        except OSError, subprocess.TimeoutExpired:
             out = ""
         if out.split()[-1:] == [version]:
             return [exe], ""

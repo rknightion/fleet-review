@@ -35,7 +35,7 @@ def py_import_lines(source: str) -> set[int]:
     """Import statements (multi-line included), plus `if TYPE_CHECKING:` blocks of only imports."""
     try:
         tree = ast.parse(source)
-    except (SyntaxError, ValueError):
+    except SyntaxError, ValueError:
         return set()
     out: set[int] = set()
     for node in ast.walk(tree):
