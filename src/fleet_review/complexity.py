@@ -58,7 +58,7 @@ def go_receiver(long_name: str) -> str:
 def _python_classes(source: str) -> list[tuple[str, int, int]]:
     try:
         tree = ast.parse(source)
-    except (SyntaxError, ValueError):
+    except SyntaxError, ValueError:
         return []
     out: list[tuple[str, int, int]] = []
 
